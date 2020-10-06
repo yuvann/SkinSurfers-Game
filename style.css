@@ -1,0 +1,175 @@
+html, body {
+	margin: 0px;
+	padding: 0px;
+	overflow: hidden;
+	position: relative;
+  font-weight: 400;
+  font-family: 'Red Hat Display', sans-serif;
+  background: linear-gradient(45deg, #f4c1df, #e7cca9);
+}
+
+#board {
+	display: block;
+	height: 100vh;
+	margin: auto;
+}
+#gameStatus {
+	  display: block;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 1;
+    transform: translate(-50%, -50%);
+}
+audio {
+	display: none;
+}
+#intro {
+	position: fixed;
+	height: 100%;
+	z-index: 10;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+#loading {
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+.circle-loader {
+  fill: transparent;
+  stroke: #fff;
+  stroke-width: 3.2;
+  animation: dash 2s ease infinite,rotate 2s linear infinite;
+}
+
+@keyframes dash {
+  0% {
+    stroke-dasharray: 1,95;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 85,95;
+    stroke-dashoffset: -25;
+  }
+  100% {
+    stroke-dasharray: 85,95;
+    stroke-dashoffset: -93;
+  }
+}
+
+@keyframes rotate {
+  0% {transform: rotate(0deg); }
+  100% {transform: rotate(360deg); }
+}
+
+#gameOver {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  background: rgba(38, 33, 110, 0.6);
+  z-index: 50;
+}
+
+#card {
+    opacity: 0;
+    width: 300px;
+    margin: auto;
+    background: #fff;
+    border-radius: 20px;    
+    display: flex;
+    flex-flow: column;
+    box-shadow: 0px 0px 20px 2px rgba(0, 0, 0, 0.25);
+}
+#gameOver img {
+  width: 180px;
+  height: 180px;
+  margin: auto;
+  display: block;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0px -5px 13px 0px rgba(0, 0, 0, 0.25);
+}
+
+#scoreCard {
+  font-size: 18px;
+  color: #26216e;
+  margin-top: 120px;
+  border: 1px dashed #999;
+  padding: 10px;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 50px;
+  margin-right: auto;
+  margin-left: auto;
+  border-radius: 50px;
+}
+
+#scoreCard span {
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  margin-top: 5px;
+}
+#scoreCard #score {
+  margin-top: 0px;
+  font-size:30px;
+  text-align: center;
+  font-weight: 500;
+}
+
+#playAgain {
+    background: #26216e;
+    padding: 15px 50px;
+    color: #fff;
+    border-radius: 50px;
+    margin: 20px auto 10px;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 1.5px;
+    display: inline-block;
+}
+
+#exit {
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: #26216e;
+  padding: 10px 30px;
+  margin: 0px auto 20px;
+  text-transform: uppercase;
+  display: inline-block ;
+}
+
+.animateGameOver {
+  animation: gameover 0.5s ease forwards;
+}
+
+@keyframes gameover {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
